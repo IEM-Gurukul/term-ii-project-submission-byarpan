@@ -1,0 +1,6 @@
+@echo off
+echo Compiling RideShare Simulation...
+javac -d out src\com\rideshare\model\*.java src\com\rideshare\exception\*.java src\com\rideshare\strategy\*.java src\com\rideshare\observer\*.java src\com\rideshare\dispatcher\DispatchService.java src\com\rideshare\repository\*.java src\com\rideshare\service\*.java src\com\rideshare\ui\*.java
+echo Running RideShare Simulation...
+java -cp out com.rideshare.ui.Main
+pause
