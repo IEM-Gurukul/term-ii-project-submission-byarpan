@@ -1,0 +1,158 @@
+<svg width="100%" viewBox="0 0 680 1100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+<marker id="tri" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+<path d="M1 1L9 5L1 9Z" fill="none" stroke="#666" stroke-width="1.5"/>
+</marker>
+</defs>
+<rect width="680" height="1100" fill="white"/>
+
+<!-- Title -->
+<text x="340" y="18" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#222">RideShare Simulation — UML Class Diagram</text>
+
+<!-- ROW 1: User abstract -->
+<rect x="240" y="28" width="200" height="76" rx="6" fill="#EEEDFE" stroke="#534AB7" stroke-width="1"/>
+<text x="340" y="52" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#3C3489">User</text>
+<text x="340" y="68" text-anchor="middle" font-family="Arial" font-size="11" fill="#534AB7">abstract class</text>
+<text x="340" y="86" text-anchor="middle" font-family="Arial" font-size="11" fill="#534AB7">userId · name · phone</text>
+
+<!-- ROW 2: Driver | Location | Rider -->
+<rect x="20" y="168" width="170" height="76" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+<text x="105" y="192" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#085041">Driver</text>
+<text x="105" y="210" text-anchor="middle" font-family="Arial" font-size="11" fill="#0F6E56">extends User</text>
+<text x="105" y="228" text-anchor="middle" font-family="Arial" font-size="11" fill="#0F6E56">vehicle · area · available</text>
+
+<rect x="250" y="168" width="180" height="76" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<text x="340" y="192" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#444441">Location</text>
+<text x="340" y="210" text-anchor="middle" font-family="Arial" font-size="11" fill="#5F5E5A">area · description</text>
+<text x="340" y="228" text-anchor="middle" font-family="Arial" font-size="11" fill="#5F5E5A">toString()</text>
+
+<rect x="490" y="168" width="170" height="76" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+<text x="575" y="192" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#085041">Rider</text>
+<text x="575" y="210" text-anchor="middle" font-family="Arial" font-size="11" fill="#0F6E56">extends User</text>
+<text x="575" y="228" text-anchor="middle" font-family="Arial" font-size="11" fill="#0F6E56">area</text>
+
+<!-- Inheritance arrows User -->
+<line x1="105" y1="168" x2="278" y2="104" stroke="#534AB7" stroke-width="1" marker-end="url(#tri)"/>
+<line x1="575" y1="168" x2="402" y2="104" stroke="#534AB7" stroke-width="1" marker-end="url(#tri)"/>
+
+<!-- ROW 3: Trip | TripStatus -->
+<rect x="160" y="320" width="220" height="96" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+<text x="270" y="346" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#0C447C">Trip</text>
+<text x="270" y="364" text-anchor="middle" font-family="Arial" font-size="11" fill="#185FA5">tripId · rider · driver</text>
+<text x="270" y="380" text-anchor="middle" font-family="Arial" font-size="11" fill="#185FA5">pickup · destination · fare</text>
+<text x="270" y="396" text-anchor="middle" font-family="Arial" font-size="11" fill="#185FA5">distanceKm · status</text>
+
+<rect x="430" y="336" width="200" height="66" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<text x="530" y="360" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#444441">TripStatus</text>
+<text x="530" y="378" text-anchor="middle" font-family="Arial" font-size="11" fill="#5F5E5A">enum</text>
+<text x="530" y="394" text-anchor="middle" font-family="Arial" font-size="11" fill="#5F5E5A">REQUESTED → COMPLETED</text>
+
+<!-- Connections to Trip (L-shaped, no crossing) -->
+<path d="M105 244 L105 290 L210 290 L210 320" fill="none" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<path d="M575 244 L575 290 L330 290 L330 320" fill="none" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="340" y1="244" x2="290" y2="320" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<line x1="380" y1="368" x2="430" y2="368" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- ROW 4: IFareStrategy | TripObserver (well separated) -->
+<rect x="20" y="480" width="200" height="66" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+<text x="120" y="502" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#633806">IFareStrategy</text>
+<text x="120" y="520" text-anchor="middle" font-family="Arial" font-size="11" fill="#854F0B">interface</text>
+<text x="120" y="538" text-anchor="middle" font-family="Arial" font-size="11" fill="#854F0B">calculateFare(km): double</text>
+
+<rect x="460" y="480" width="200" height="66" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+<text x="560" y="502" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#712B13">TripObserver</text>
+<text x="560" y="520" text-anchor="middle" font-family="Arial" font-size="11" fill="#993C1D">interface</text>
+<text x="560" y="538" text-anchor="middle" font-family="Arial" font-size="11" fill="#993C1D">update(trip, message)</text>
+
+<!-- ROW 5: Fare classes | Notifier classes (well spaced) -->
+<rect x="10" y="618" width="120" height="56" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+<text x="70" y="640" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#633806">FlatFare</text>
+<text x="70" y="658" text-anchor="middle" font-family="Arial" font-size="11" fill="#854F0B">fixed Rs.50</text>
+
+<rect x="145" y="618" width="120" height="56" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+<text x="205" y="640" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#633806">PerKmFare</text>
+<text x="205" y="658" text-anchor="middle" font-family="Arial" font-size="11" fill="#854F0B">Rs.10 x km</text>
+
+<rect x="280" y="618" width="120" height="56" rx="6" fill="#FAEEDA" stroke="#854F0B" stroke-width="1"/>
+<text x="340" y="640" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#633806">SurgeFare</text>
+<text x="340" y="658" text-anchor="middle" font-family="Arial" font-size="11" fill="#854F0B">Rs.20 x km</text>
+
+<rect x="450" y="618" width="100" height="56" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+<text x="500" y="640" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#712B13">RiderNotifier</text>
+<text x="500" y="658" text-anchor="middle" font-family="Arial" font-size="10" fill="#993C1D">notifies rider</text>
+
+<rect x="566" y="618" width="104" height="56" rx="6" fill="#FAECE7" stroke="#993C1D" stroke-width="1"/>
+<text x="618" y="640" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#712B13">DriverNotifier</text>
+<text x="618" y="658" text-anchor="middle" font-family="Arial" font-size="10" fill="#993C1D">notifies driver</text>
+
+<!-- Fare → IFareStrategy -->
+<line x1="70" y1="618" x2="85" y2="546" stroke="#854F0B" stroke-width="1" marker-end="url(#tri)"/>
+<line x1="205" y1="618" x2="145" y2="546" stroke="#854F0B" stroke-width="1" marker-end="url(#tri)"/>
+<line x1="340" y1="618" x2="200" y2="546" stroke="#854F0B" stroke-width="1" marker-end="url(#tri)"/>
+
+<!-- Notifier → TripObserver -->
+<line x1="500" y1="618" x2="535" y2="546" stroke="#993C1D" stroke-width="1" marker-end="url(#tri)"/>
+<line x1="618" y1="618" x2="615" y2="546" stroke="#993C1D" stroke-width="1" marker-end="url(#tri)"/>
+
+<!-- ROW 6: Services -->
+<rect x="20" y="752" width="180" height="76" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+<text x="110" y="776" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#0C447C">DispatchService</text>
+<text x="110" y="794" text-anchor="middle" font-family="Arial" font-size="11" fill="#185FA5">drivers: ArrayList</text>
+<text x="110" y="812" text-anchor="middle" font-family="Arial" font-size="11" fill="#185FA5">findNearestDriver()</text>
+
+<rect x="240" y="752" width="200" height="76" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+<text x="340" y="776" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#0C447C">RideService</text>
+<text x="340" y="794" text-anchor="middle" font-family="Arial" font-size="11" fill="#185FA5">activeTrips: HashMap</text>
+<text x="340" y="812" text-anchor="middle" font-family="Arial" font-size="11" fill="#185FA5">bookRide()</text>
+
+<rect x="480" y="752" width="180" height="76" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+<text x="570" y="776" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#0C447C">UserService</text>
+<text x="570" y="794" text-anchor="middle" font-family="Arial" font-size="11" fill="#185FA5">riders: ArrayList</text>
+<text x="570" y="812" text-anchor="middle" font-family="Arial" font-size="11" fill="#185FA5">registerDriver/Rider()</text>
+
+<!-- RideService uses IFareStrategy (dashed, L-shaped) -->
+<path d="M270 752 L270 716 L120 716 L120 546" fill="none" stroke="#BA7517" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+<!-- RideService uses TripObserver (dashed, L-shaped) -->
+<path d="M410 752 L410 716 L560 716 L560 546" fill="none" stroke="#993C1D" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+<!-- DispatchService uses Driver (dashed) -->
+<path d="M20 780 L0 780 L0 208 L20 208" fill="none" stroke="#666" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+
+<!-- ROW 7: Repositories -->
+<rect x="80" y="904" width="180" height="60" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<text x="170" y="928" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#444441">DriverRepository</text>
+<text x="170" y="948" text-anchor="middle" font-family="Arial" font-size="11" fill="#5F5E5A">saveDriver · loadAll</text>
+
+<rect x="420" y="904" width="180" height="60" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1"/>
+<text x="510" y="928" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#444441">TripRepository</text>
+<text x="510" y="948" text-anchor="middle" font-family="Arial" font-size="11" fill="#5F5E5A">saveTrip · loadAll</text>
+
+<!-- Service → Repository -->
+<path d="M110 828 L110 876 L170 876 L170 904" fill="none" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<path d="M570 828 L570 876 L510 876 L510 904" fill="none" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- ROW 8: Exceptions -->
+<rect x="20" y="1014" width="180" height="56" rx="6" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
+<text x="110" y="1036" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#791F1F">DriverNotFoundException</text>
+<text x="110" y="1054" text-anchor="middle" font-family="Arial" font-size="10" fill="#A32D2D">extends RuntimeException</text>
+
+<rect x="250" y="1014" width="180" height="56" rx="6" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
+<text x="340" y="1036" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#791F1F">InvalidLocationException</text>
+<text x="340" y="1054" text-anchor="middle" font-family="Arial" font-size="10" fill="#A32D2D">extends RuntimeException</text>
+
+<rect x="480" y="1014" width="180" height="56" rx="6" fill="#FCEBEB" stroke="#A32D2D" stroke-width="1"/>
+<text x="570" y="1036" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#791F1F">FareCalculationException</text>
+<text x="570" y="1054" text-anchor="middle" font-family="Arial" font-size="10" fill="#A32D2D">extends RuntimeException</text>
+
+<!-- Legend -->
+<rect x="20" y="1082" width="640" height="18" rx="4" fill="#F5F5F5" stroke="#ddd" stroke-width="0.5"/>
+<text x="30" y="1095" font-family="Arial" font-size="11" fill="#444">Legend:</text>
+<line x1="90" y1="1091" x2="115" y2="1091" stroke="#666" stroke-width="1" marker-end="url(#tri)"/>
+<text x="120" y="1095" font-family="Arial" font-size="11" fill="#444">inheritance</text>
+<line x1="210" y1="1091" x2="235" y2="1091" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="240" y="1095" font-family="Arial" font-size="11" fill="#444">association</text>
+<line x1="340" y1="1091" x2="365" y2="1091" stroke="#666" stroke-width="1" stroke-dasharray="5 3" marker-end="url(#arrow)"/>
+<text x="370" y="1095" font-family="Arial" font-size="11" fill="#444">uses / depends on</text>
+</svg>
