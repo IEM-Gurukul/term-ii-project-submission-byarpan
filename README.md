@@ -1,6 +1,6 @@
 # 🚗 Ride-Sharing Simulation System
 
-**PCCCS495 – Term II Project**|
+**PCCCS495 – Term II Project** |
 **Student:** Arpan Ghosh | **Roll No:** 06 | **Dept:** CSE (IoTCSBT) | **Spring 2026**
 
 ---
