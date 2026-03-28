@@ -1,6 +1,6 @@
 # 🚗 Ride-Sharing Simulation System
 
-**PCCCS495 – Term II Project**
+**PCCCS495 – Term II Project**|
 **Student:** Arpan Ghosh | **Roll No:** 06 | **Dept:** CSE (IoTCSBT) | **Spring 2026**
 
 ---
@@ -164,14 +164,13 @@ src/com/rideshare/
 ## Project Structure
 
 ```
+## Project Structure
+
 term-ii-project-submission-byarpan/
 ├── src/          →  Java source files
-├── out/          →  Compiled class files
-├── data/         →  drivers.txt · trips.txt
-├── docs/         →  UML_Diagram.svg
+├── docs/         →  UML diagram
 ├── report/       →  Project report PDF
 ├── slides/       →  Presentation slides
-├── run.bat       →  Windows run script
 └── README.md     →  This file
 ```
 
